@@ -1,0 +1,38 @@
+---
+- name: Verify apache installation
+  hosts: all
+  become: true
+  tasks:
+    - name: Ensure apache is at the latest version
+      ansible.builtin.apt:
+        name: apache2
+        state: latest
+    - name: Ensure apache is running
+      ansible.builtin.service:
+        name: apache2
+        state: started
+      notify:
+        - Restart apache
+  handlers:
+    - name: Restart apache
+      ansible.builtin.service:
+        name: apache2
+        state: restarted
+# ---
+# - name: "learning handing and notify"
+#   hosts: all
+#   become: true
+
+#   tasks:
+#     - name: "install apache server"
+#       apt:
+#         name: apache2
+#         state: present
+#         notify:
+#           - restart_apache
+
+#   handlers:
+#     - name: restart_apache
+#       service:
+#         name: apache2
+#         state: restarted

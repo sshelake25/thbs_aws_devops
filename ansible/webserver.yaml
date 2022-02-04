@@ -4,7 +4,9 @@
   hosts: all
   become: true
   roles: 
-    - webserver
+    - webserver # same directry if roles present
+    - role: '/home/roles/webserver' # if roles keept in other location
+
     # - comman
     # - user_confi
 
