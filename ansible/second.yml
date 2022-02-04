@@ -1,0 +1,54 @@
+---
+- name: "create directory and add file inside"
+  hosts: all
+  become: YES
+  tasks:
+    - name: "create directory"
+      file:
+        path: "/tmp/surekha"
+        state: directory
+    - name: "copy file inside surekha"
+      copy:
+        src: "/tmp/config.txt"
+        dest: "/tmp/surekha"
+#paly no 2
+#working argument example
+# ansible all -m apt -a "name=git state=present" -u node1 -b -K
+# git clone repo_url
+# git commit -m "message"
+# git push
+# git add filename 
+
+#name of play
+#to excute playbook - ansible-playbook second.yml -K
+- name: "install apache2, git and checkout repo"
+  host: all
+  become: true
+  ## will also user varible
+  vars:
+    server_name: apache2
+    message: "hello"
+
+  tasks:
+    - name: Update all packages to their latest version
+      apt:
+        name: "*"
+        state: latest
+    # ansible [hostgorup] -m [module] -a ["name=value"]
+    # ansible all -m apt -a 'name=apache2 state=present'
+    - name: "Install {{server_name}} httpd  (state=present is optional)"
+      apt: #build in module by ansible
+        name: {{ server_name }} #arg
+        state: present #arg
+    # ansible all -m apt -a 'name=git state=present'   --> install git remotely
+    # sudo apt install git
+    - name: "Install git on nodes"
+      apt:
+        name: git
+        state: present
+    # git clone  https://github.com/sshelake25/thlabs-git.git
+    # ansible all -m git -a 'repo=https://github.com/sshelake25/thlabs-git.git dest=/tmp/checkout' -u userName -b -K
+    - name: Git checkout my project repo
+      ansible.builtin.git:
+        repo: "https://github.com/sshelake25/thlabs-git.git"
+        dest: /tmp/checkout

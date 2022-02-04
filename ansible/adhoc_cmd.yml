@@ -1,0 +1,24 @@
+ansible all -m copy -a 'src=/etc/ansible/hosts dest=/tmp'
+
+ansible all -m command -a 'ls -rtl' -i /tmp/myinv.txt
+
+
+ansible all -m user -a 'name=surekha' -i /tmp/myinv.txt --become --ask-become-pass
+
+#remove create user
+ansible all -m user -a 'name=surekha state=absent remove=yes force=yes' -i /tmp/myinv.txt --become --ask-become-pass
+
+
+
+# - name: Remove the user 'johnd'
+#   ansible.builtin.user:
+#     name: johnd
+#     state: absent
+#     remove: yes
+
+# - name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
+#   ansible.builtin.user:
+#     name: johnd
+#     comment: John Doe
+#     uid: 1040
+#     group: admin

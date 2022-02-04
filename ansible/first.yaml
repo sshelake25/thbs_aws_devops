@@ -1,0 +1,13 @@
+---
+- name: "create directory and add file inside"
+  hosts: all
+  become: YES
+  tasks:
+    - name: "create directory"
+      file:
+        path: "/tmp/surekha"
+        state: directory
+    - name: "copy file inside surekha"
+      copy:
+        src: "/tmp/config.txt"
+        dest: "/tmp/surekha"

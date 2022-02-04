@@ -1,0 +1,15 @@
+---
+- hosts: myservers
+vars:
+package_name: postfix
+tasks:
+- name: Installing "{{package_name}}"
+yum:
+name: "{{package_name}}"
+state: latest
+notify: 
+- restart_service
+handlers:
+- name: restart_service
+service:
+name: po

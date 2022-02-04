@@ -1,0 +1,22 @@
+city: hassan
+is_user_admin: yes,
+newLine: |
+  ssa
+  sasasas
+phone: 6361579987
+name: meghana
+p_adress:
+  - pcity:
+      gradcity: us
+      speciality: sample
+  - ppin:
+      - 20
+      - 30
+      - 40
+  - pcity:
+      gradcity: india
+      speciality: divercity
+  - ppin:
+      - 77
+      - 99
+      - 33

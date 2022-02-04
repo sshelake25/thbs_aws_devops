@@ -1,0 +1,32 @@
+
+
+---
+
+#dictory
+#yes = true, YES , Yes
+is_presnt: FALSE
+address:
+  - psent_addr :
+      pcity: pune
+      ppin: 8080
+      puniqe: 'abb'
+
+  - premt_addr:
+      pcity: pune
+      ppin: 8080
+      puniqe: 'abb'
+
+city:
+  - gujarat
+  - del
+  - pune
+
+pr_address:
+  p_city: hyd
+  p_mob_no: 909090
+#if you want to spead value accordd muti new lines
+address_newline: | 
+ dasdan 
+ nnmdsndna 
+ kkdakjda 
+ klkdkladlads

@@ -1,0 +1,29 @@
+{
+    "city": "pune",
+    "phone": 90909090,
+    "name": "aastha",
+    "p_adress": [
+        {
+            "pcity": {
+                "grandcity": "Us",
+                "speciality": "sample"
+            },
+            "ppin": [
+                20,
+                220,
+                229
+            ]
+        },
+        {
+            "pcity": {
+                "grandcity": "india",
+                "speciality": "divesity"
+            },
+            "ppin": [
+                12,
+                23,
+                64
+            ]
+        }
+    ]
+}
