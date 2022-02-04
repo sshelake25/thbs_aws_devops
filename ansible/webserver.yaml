@@ -1,0 +1,17 @@
+---
+# ansible-playbook webserver.yaml -K 
+- name: "Install docker and maven with roles"
+  hosts: all
+  become: true
+  roles: 
+    - webserver
+    # - comman
+    # - user_confi
+
+
+
+- name: "Install php with roles"
+  hosts: all
+  become: true
+  roles: 
+    - php
