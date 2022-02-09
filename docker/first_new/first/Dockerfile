@@ -8,4 +8,4 @@ COPY target/*.jar app.jar
 #start running you sb app when container will get started 
 ENTRYPOINT ["java","-jar","/app.jar"]
 
-# docker build -t sshelake25/thbs_aws_dev:first-spring-app
+# docker build -t sshelake25/thbs_aws_dev:spring-app
