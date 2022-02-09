@@ -5,6 +5,12 @@ FROM openjdk:8-jdk-alpine
 
 COPY target/*.jar app.jar
 
+RUN mkdir /myvol
+
+RUN echo "hello world" > /myvol/greeting.txt
+
+VOLUME [ "/data-vol" ]
+
 #start running you sb app when container will get started 
 ENTRYPOINT ["java","-jar","/app.jar"]
 
