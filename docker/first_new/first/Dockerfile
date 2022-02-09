@@ -9,7 +9,7 @@ RUN mkdir /myvol
 
 RUN echo "hello world" > /myvol/greeting.txt
 
-VOLUME [ "/data-vol" ]
+VOLUME [ "/myvol" ]
 
 #start running you sb app when container will get started 
 ENTRYPOINT ["java","-jar","/app.jar"]
