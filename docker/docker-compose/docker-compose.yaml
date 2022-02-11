@@ -1,0 +1,11 @@
+# docker-compose up
+version: '3'
+services:
+  webapp1:
+    image: nginx
+    ports:
+      - "8088:80"
+  webapp2:
+    image: nginx
+    ports:
+      - "8087:80"
