@@ -1,0 +1,28 @@
+# Kubectl scale --replicas=8 rc -l myname=Surekha // to scale pod 
+# Kubectl scale --replicas=3 rc -l myname=Surekha // to scale down pod 
+# Kubectl delete -f myrc.yml
+#kubectl  api-resources
+kind: ReplicationController # object kind RC
+apiVersion: v1
+metadata:
+  name: myreplica #name of object
+spec:
+  replicas: 3 # how many pods need to create
+  selector: # which pod to watch/belong to rc
+    myname: Surekha # much match the label
+
+  template: # what will be inside pod that we defind on template
+    metadata:
+      name: testpod6 # name of pof
+      labels: # label on pof
+        myname: Surekha
+    spec: # what will be inside pod / contaier inside pof
+      containers:
+        - name: c00
+          image: ubuntu
+          command:
+            [
+              "/bin/bash",
+              "-c",
+              "while true; do echo Hello-wolld ; sleep 5 ; done",
+            ]
