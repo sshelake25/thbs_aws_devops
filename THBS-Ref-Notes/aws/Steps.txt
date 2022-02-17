@@ -1,0 +1,71 @@
+GIT DEMO MODIFY
+
+AWS STEPS TO CREATE VIRTUAL MACHINE(EC2 INSTANCE-ELASTIC COMPUTE CLOUD)
+
+
+Log in to the console
+Select EC2 in services
+Launch Virtual Machine (or) Launch instances
+
+step 1: choose AMI(Amazon Machine Image)
+        enable free tier and select ubuntu server 20.04
+		
+step 2: Choose instance type
+        select t2 (free tier)
+
+step 3: Configure instances
+		U can choose no of instances as per requirement, we can also provide user data
+		which will be executed when we start the insatnce
+
+step 4: Add storage
+        We can provide the type of storage device, size of storage and also can add 
+        multiple storage in this step
+
+step 5: Add tags:(OPTIONAL)
+        Tag consists of a case-sensitive key-value pair. 
+		For example, you could define a tag with key = Name and value = Webserver.
+        A copy of a tag can be applied to volumes, instances or both.
+        Tags will be applied to all instances and volumes. Learn more about tagging your Amazon EC2 resources.		
+		
+STEP 6: Configure security group
+        Security group is a set of firewall rules that control the traffic for your instance. 
+		On this page, you can add rules to allow specific traffic to reach your instance. 
+		For example, if you want to set up a web server and allow Internet traffic to reach your instance, 
+		add rules that allow unrestricted access to the HTTP and HTTPS ports. 
+		You can create a new security group or select from an existing one
+		We can add multiple security groups. 
+		
+step 7: Review
+        We can review all configuration settings done before launching
+		
+step 8: Launch
+        Here we have to create a key pair or choose the existing key pair which is used for authentication .
+		Once finished with key pair configuration the instance is created.
+		select the instance click on connect to enter into the instance/VM.
+		
+		
+#USING PUBLIC PRIVATE KEY PAIR TO LOGIN INTO THE CONSOLE AND USE THE INSTANCE 
+
+PUTTY can be used for this approach 
+The key which we download in aws is in .pem file format in order to use putty we should convert the file to .ppk
+(putty private key) format. We use PuTTYgen tool for this conversion.
+
+STEPS:	
+
+Open PuTTYgen tool	
+select 	load an existing private key file
+select the .pem file downloaded from aws and click on open
+save it as private key (.ppk file is generated)
+
+Now open putty tool
+Enter the public ip-address of the instance created in aws
+Ellaborate SSH present at the left side and select Auth
+Now u can browse and select the .ppk key generated and click on open
+This opens ur instance terminal where it asks for username. 
+Once we provide the user user-name it will be authenticated and allows to use the instance created in AWS.
+
+
+
+
+	
+		
