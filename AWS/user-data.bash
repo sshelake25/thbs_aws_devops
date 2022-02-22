@@ -1,6 +1,7 @@
 #!/bin/bash 
-
-# -- update and install docker, git, httpd 
+apt update -y
+apt install -y docker.io
+systemctl start docker
 apt update -y
 apt install -y apache2
 systemctl start apache2
