@@ -1,5 +1,6 @@
 ---
-# ansible-playbook webserver.yaml -K 
+# ansible-playbook webserver.yaml -K
+# adding sample command tto get this file in change section
 - name: "Install docker and maven with roles"
   hosts: all
   become: true
