@@ -1,0 +1,43 @@
+{
+    "Id": "Policy1646030883100",
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1646030823634",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Effect": "Deny",
+            "Resource": "arn:aws:s3:::thbs-s3-ss-policy/*",
+            "Condition": {
+                "Null": {
+                    "s3:x-amz-server-side-encryption": "true"
+                }
+            },
+            "Principal": "*"
+        },
+        {
+            "Sid": "Stmt1646030",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Effect": "Deny",
+            "Resource": "arn:aws:s3:::thbs-s3-ss-policy/*",
+            "Condition": {
+                "StringNotEquals": {
+                    "s3:x-amz-server-side-encryption": "AES256"
+                }
+            },
+            "Principal": "*"
+        },
+        {
+            "Sid": "allow-get-obj",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::thbs-s3-ss-policy/*",
+            "Principal": "*"
+        }
+    ]
+}
