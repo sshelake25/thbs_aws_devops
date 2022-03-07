@@ -78,3 +78,40 @@ iam_role 'arn:aws:iam::462886535217:role/service-role/AmazonRedshift-CommandsAcc
 DATEFORMAT 'MM/DD/YYYY'
 json as 'auto';
 
+
+SELECT sum(quantity)
+FROM ps_store_schema.orders
+WHERE purchase_date = '12/31/2020';
+
+
+-- Customer info and prod sold on specifi date
+select first_name, last_name, email, product_name, quantity, quantity * price as total_price 
+from ps_store_schema.customers As c
+inner join  ps_store_schema.orders AS s on c.customer_number = s.customer_id
+inner join ps_store_schema.products AS p on s.product_id = p.product_id
+WHERE purchase_date = '12/31/2020';
+
+--	• Top ten buyers by quantity and items sold.
+
+SELECT first_name, last_name, email, total_quantity 
+FROM (SELECT customer_id, sum(quantity) total_quantity
+ FROM ps_store_schema.orders
+ GROUP BY customer_id
+ ORDER BY total_quantity desc limit 10) S, ps_store_schema.customers
+WHERE S.customer_id = customer_number
+ORDER BY S.total_quantity desc;
+
+SELECT first_name, last_name, email, quantity 
+FROM ps_store_schema.customers as c
+JOIN ps_store_schema.orders as o
+ON c.customer_number = o.customer_id
+ORDER BY quantity desc limit 10
+
+
+SELECT product_name, total_quantity 
+FROM (SELECT product_id, sum(quantity) total_quantity
+ FROM ps_store_schema.orders
+ GROUP BY product_id
+ ORDER BY total_quantity desc limit 10) AS S, ps_store_schema.products
+WHERE S.product_id = products.product_id
+ORDER BY total_quantity desc;
