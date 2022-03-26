@@ -1,0 +1,5 @@
+To run these examples you will need:
+1) Connection to an instance of Oracle database 8i, orhigher
+2) A development environment like Oracle SqlDevelper or Toad or Sqlplus etc
+3) Run Create.txt in the Before folder to create the tables you will need for these demos
+3) Run Drop.txt in the After folder to drop the tables you created for these demos

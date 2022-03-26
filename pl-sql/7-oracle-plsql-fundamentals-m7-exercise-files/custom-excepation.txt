@@ -1,0 +1,15 @@
+-- select * from departments;
+DECLARE
+ l_DEPT_ID departments.DEPT_ID%TYPE; 
+
+BEGIN
+-- other expcetion
+ SELECT DEPT_ID into l_DEPT_ID FROM departments WHERE DEPT_ID = 'a';
+ -- Not found exception
+ SELECT DEPT_ID into l_DEPT_ID FROM departments WHERE DEPT_ID = 1;
+EXCEPTION
+ WHEN NO_DATA_FOUND THEN
+  DBMS_OUTPUT.put_line('Could not find department');
+ WHEN OTHERS THEN
+  DBMS_OUTPUT.put_line('A Fatal Error Occurred');
+END; 

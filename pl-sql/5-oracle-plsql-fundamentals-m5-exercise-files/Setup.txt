@@ -1,0 +1,3 @@
+To run these examples you will need:
+1) Connection to an instance of Oracle database 8i, orhigher
+2) A development environment like Oracle SqlDevelper or Toad or Sqlplus etc

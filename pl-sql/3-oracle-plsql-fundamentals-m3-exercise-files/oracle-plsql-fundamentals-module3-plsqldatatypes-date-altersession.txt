@@ -1,0 +1,7 @@
+--Currently the time zone for the database and the session are both Pacific
+select current_timestamp,systimestamp from dual;
+
+--Set Session time zone to Eastern
+alter session set time_zone = 'EST';
+
+select current_timestamp,systimestamp from dual;
